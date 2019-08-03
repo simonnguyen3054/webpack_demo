@@ -2,13 +2,13 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    main: "./src/index.js",
-    vendor: "./src/vendor.js"
+    main: "./src/index.js", //main entry of the app
+    vendor: "./src/vendor.js" //vendor entry to store third party js library
   },
   module: {
     rules: [
       {
-        test: /\.scss$/i,
+        test: /\.scss$/i, //regex - looking file ends with scss
         use: [
           "style-loader", //3 inject styles into dom
           "css-loader", //2. turn css into commonjs

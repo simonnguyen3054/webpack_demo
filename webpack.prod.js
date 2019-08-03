@@ -10,10 +10,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].[contentHash].bundle.js", 
     path: path.resolve(__dirname, "dist")
   },
-  optimization: {
+  optimization: { //minfying templates
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
