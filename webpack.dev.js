@@ -7,10 +7,11 @@ module.exports = merge(common, {
   mode: "development",
   output: {
     filename: "[name].bundle.js",
+    //output as main.bundle.js. webpack-dev-server store output files in memory
     path: path.resolve(__dirname, "dist")
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({ //webpack gernerates a new html file using out given template
       template: "./src/template.html"
     })
   ],

@@ -10,14 +10,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js", 
+    filename: "[name].[contentHash].bundle.js", //output main.hash.bundle.js in dist directory
     path: path.resolve(__dirname, "dist")
   },
   optimization: { //minfying templates
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
-      new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({ //new html file is generarted by webpack given our template html
         template: "./src/template.html",
         minify: {
           removeAttributeQuotes: true,
@@ -28,10 +28,10 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
+    new MiniCssExtractPlugin({ //extract css into new file
       filename: "[name].[contentHash].css"
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin() //delete main file everytime we run npm run build
   ],
   module: {
     rules: [

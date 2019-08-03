@@ -16,16 +16,16 @@ module.exports = {
         ]
       },
       {
-        test: /\.html$/,
+        test: /\.html$/, //load html
         use: ["html-loader"]
       },
       {
-        test: /\.(svg|png|jpg|gif)$/,
+        test: /\.(svg|png|jpg|gif)$/, //load images
         use: {
           loader: "file-loader",
           options: {
             name: "[name].[hash].[ext]",
-            outputPath: "imgs"
+            outputPath: "imgs" //img folder will be created in dist dir
           }
         }
       }
